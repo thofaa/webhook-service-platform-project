@@ -1,4 +1,4 @@
-import { config, fields, singleton } from '@keystatic/core';
+import { config, fields, singleton, collection } from '@keystatic/core';
 
 export default config({
   storage: {
@@ -7,6 +7,7 @@ export default config({
   ui: {
     navigation: {
       'Pages': ['hero', 'about', 'pricing', 'faq'],
+      'Docs': ['docs'],
     },
   },
   singletons: {
@@ -103,6 +104,20 @@ export default config({
           }),
           { label: 'Pricing Tiers', itemLabel: props => props.fields.name.value }
         ),
+      },
+    }),
+  },
+  collections: {
+    docs: collection({
+      label: 'Docs',
+      path: 'src/content/docs/*',
+      slugField: 'title',
+      format: { contentField: 'body' },
+      schema: {
+        title: fields.slug({ name: { label: 'Title' } }),
+        description: fields.text({ label: 'Description', multiline: true }),
+        order: fields.integer({ label: 'Sidebar order' }),
+        body: fields.text({ label: 'Body', multiline: true }),
       },
     }),
   },

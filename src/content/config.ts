@@ -82,9 +82,19 @@ const aboutCollection = defineCollection({
   }),
 });
 
+const docsCollection = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    order: z.number().default(0),
+  }),
+});
+
 export const collections = {
   hero: heroCollection,
   about: aboutCollection,
   faq: faqCollection,
   pricing: pricingCollection,
+  docs: docsCollection,
 };
