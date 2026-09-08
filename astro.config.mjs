@@ -3,6 +3,7 @@ import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import keystatic from "@keystatic/astro";
 import react from "@astrojs/react";
+import mdx from "@astrojs/mdx";
 
 export default defineConfig({
   site: "https://yoursite.com",
@@ -41,6 +42,7 @@ export default defineConfig({
   },
   integrations: [
     sitemap(),
+    mdx(),
     process.env.NODE_ENV === 'development' ? react({
       include: ['**/*.{jsx,tsx}']
     }) : null,

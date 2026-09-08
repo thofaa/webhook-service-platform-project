@@ -117,7 +117,7 @@ export default config({
         title: fields.slug({ name: { label: 'Title' } }),
         description: fields.text({ label: 'Description', multiline: true }),
         order: fields.integer({ label: 'Sidebar order' }),
-        body: fields.text({ label: 'Body', multiline: true }),
+        body: fields.mdx({ label: 'Body' }),
       },
     }),
   },
