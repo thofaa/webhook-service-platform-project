@@ -1,0 +1,68 @@
+{
+  "tagline": "Our story",
+  "title": "We build the plumbing that powers your product",
+  "description": "XXX is a webhook platform that delivers your events reliably, at scale, so your team can focus on building.",
+  "storyTitle": "Why we built XXX",
+  "story": "Reliable event delivery is painful. Retries, ordering, batching, observability, every team ends up building the same broken plumbing by hand. We started XXX so that shipping a webhook to prod is a one-line change, not a months-long project. Our mission is simple: take every delivery headache off your table and turn it into a managed service you never have to think about.",
+  "stats": [
+    {
+      "value": "99.99%",
+      "label": "Uptime SLA"
+    },
+    {
+      "value": "XXX",
+      "label": "Events delivered / week"
+    },
+    {
+      "value": "XXX",
+      "label": "Teams on Syntro"
+    },
+    {
+      "value": "24/7",
+      "label": "Support & monitoring"
+    }
+  ],
+  "values": [
+    {
+      "title": "Reliability first",
+      "description": "Events are lost forever if they don't arrive. We engineer for delivery, not for best case."
+    },
+    {
+      "title": "Boring is beautiful",
+      "description": "We keep the stack proven and the guarantees explicit. No surprises when your system depends on us."
+    },
+    {
+      "title": "Observable by default",
+      "description": "Every delivery is a first-class citizen you can inspect. If something goes wrong, you'll know exactly where."
+    },
+    {
+      "title": "Dogfooding",
+      "description": "We run XXX on YYY. Our own reliability depends on the service we ship to you."
+    }
+  ],
+  "team": [
+    {
+      "name": "Bang Jarwo",
+      "role": "Co-founder & CEO",
+      "bio": "Ex-distributed-systems engineer who got tired of rebuilding retry queues."
+    },
+    {
+      "name": "Bang Jarwo",
+      "role": "Co-founder & CTO",
+      "bio": "Thinks about idempotency, ordering, and message durability so you don't have to."
+    },
+    {
+      "name": "Bang Jarwo",
+      "role": "Head of Engineering",
+      "bio": "Leads the team that built the delivery pipeline handling billions of events."
+    },
+    {
+      "name": "Bang Jarwo",
+      "role": "Head of Reliability",
+      "bio": "Owns uptime, incident response, and the on-call rotation that keeps the 99.99% promise."
+    }
+  ],
+  "ctaTitle": "Ready to stop writing webhook plumbing?",
+  "ctaButtonText": "Get started",
+  "ctaButtonUrl": "/signup"
+}
