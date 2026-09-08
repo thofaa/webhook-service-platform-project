@@ -1,0 +1,60 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const docs = (await getCollection("docs")).sort(
+  (a, b) => a.data.order - b.data.order
+);
+---
+
+<BaseLayout>
+  <section>
+    <div class="px-8 pt-24 mx-auto md:px-12 lg:px-24 max-w-7xl">
+      <div class="text-center max-w-2xl mx-auto lg:text-balance">
+        <p class="text-sm leading-normal font-bold uppercase text-accent-600">
+          Documentation
+        </p>
+        <h1
+          class="text-xl leading-tight tracking-tight sm:text-2xl md:text-3xl capitalize lg:text-4xl mt-4 font-medium text-base-900 lg:text-balance">
+          Everything you need to get started
+        </h1>
+        <p class="text-base leading-normal mt-4 text-base-500 font-medium">
+          Guides and references for building with Syntro.
+        </p>
+      </div>
+
+      {
+        docs.length === 0 ? (
+          <div
+            class="mt-16 max-w-md mx-auto text-center bg-base-50 border border-base-200 rounded-2xl px-8 py-12">
+            <p class="text-base leading-normal text-base-500 font-medium">
+              Documentation is on the way.
+            </p>
+            <p class="text-sm leading-normal mt-2 text-base-400 font-medium">
+              New guides are added from the Keystatic admin panel.
+            </p>
+          </div>
+        ) : (
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-16">
+            {
+              docs.map(({ id, data }) => (
+                <a
+                  href={`/docs/${id}`}
+                  class="flex flex-col h-full p-8 bg-base-50 border border-base-200 rounded-2xl hover:bg-accent-50 hover:border-accent-200 transition">
+                  <h2
+                    class="text-lg leading-normal sm:text-xl font-medium text-base-900">
+                    {data.title}
+                  </h2>
+                  <p class="text-base leading-normal mt-2 text-base-500 font-medium">
+                    {data.description}
+                  </p>
+                </a>
+              ))
+            }
+            </div>
+        )
+      }
+    </div>
+  </section>
+</BaseLayout>
