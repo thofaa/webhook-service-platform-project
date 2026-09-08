@@ -4,9 +4,14 @@ export default config({
   storage: {
     kind: 'local',
   },
+  ui: {
+    navigation: {
+      'Pages': ['hero', 'pricing', 'faq'],
+    },
+  },
   singletons: {
     hero: singleton({
-      label: 'Home Page Hero',
+      label: 'Home Page',
       path: 'src/content/hero/index',
       format: { data: 'json' },
       schema: {
