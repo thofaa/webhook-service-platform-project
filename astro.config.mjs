@@ -2,6 +2,7 @@ import { defineConfig, fontProviders } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import keystatic from "@keystatic/astro";
+import react from "@astrojs/react";
 
 export default defineConfig({
   site: "https://yoursite.com",
@@ -21,5 +22,8 @@ export default defineConfig({
   ].filter(Boolean),
   vite: {
     plugins: [tailwindcss()],
+    optimizeDeps: {
+      exclude: ['astro:env/server', 'astro:scripts/before-hydration.js']
+    }
   },
 });
