@@ -49,8 +49,42 @@ const pricingCollection = defineCollection({
   }),
 });
 
+const aboutCollection = defineCollection({
+  type: "data",
+  schema: z.object({
+    tagline: z.string(),
+    title: z.string(),
+    description: z.string(),
+    storyTitle: z.string(),
+    story: z.string(),
+    stats: z.array(
+      z.object({
+        value: z.string(),
+        label: z.string(),
+      })
+    ),
+    values: z.array(
+      z.object({
+        title: z.string(),
+        description: z.string(),
+      })
+    ),
+    team: z.array(
+      z.object({
+        name: z.string(),
+        role: z.string(),
+        bio: z.string(),
+      })
+    ),
+    ctaTitle: z.string(),
+    ctaButtonText: z.string(),
+    ctaButtonUrl: z.string(),
+  }),
+});
+
 export const collections = {
   hero: heroCollection,
+  about: aboutCollection,
   faq: faqCollection,
   pricing: pricingCollection,
 };
