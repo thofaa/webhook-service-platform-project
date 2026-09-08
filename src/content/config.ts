@@ -27,7 +27,30 @@ const faqCollection = defineCollection({
   }),
 });
 
+const pricingCollection = defineCollection({
+  type: "data",
+  schema: z.object({
+    tagline: z.string(),
+    title: z.string(),
+    description: z.string(),
+    tiers: z.array(
+      z.object({
+        name: z.string(),
+        target: z.string(),
+        description: z.string(),
+        priceMonthly: z.string(),
+        priceAnnually: z.string(),
+        isPopular: z.boolean().default(false),
+        buttonText: z.string().default("Get Started"),
+        buttonUrl: z.string(),
+        featuresList: z.array(z.string()),
+      })
+    ),
+  }),
+});
+
 export const collections = {
   hero: heroCollection,
   faq: faqCollection,
+  pricing: pricingCollection,
 };

@@ -36,5 +36,32 @@ export default config({
         ),
       },
     }),
+    pricing: singleton({
+      label: 'Pricing Page',
+      path: 'src/content/pricing/index',
+      format: { data: 'json' },
+      schema: {
+        tagline: fields.text({ label: 'Tagline' }),
+        title: fields.text({ label: 'Title' }),
+        description: fields.text({ label: 'Description', multiline: true }),
+        tiers: fields.array(
+          fields.object({
+            name: fields.text({ label: 'Plan Name' }),
+            target: fields.text({ label: 'Target Audience' }),
+            description: fields.text({ label: 'Description', multiline: true }),
+            priceMonthly: fields.text({ label: 'Monthly Price' }),
+            priceAnnually: fields.text({ label: 'Annual Price' }),
+            isPopular: fields.checkbox({ label: 'Is Popular?' }),
+            buttonText: fields.text({ label: 'Button Text', defaultValue: 'Get Started' }),
+            buttonUrl: fields.text({ label: 'Button URL' }),
+            featuresList: fields.array(
+              fields.text({ label: 'Feature' }),
+              { label: 'Features', itemLabel: props => props.value }
+            ),
+          }),
+          { label: 'Pricing Tiers', itemLabel: props => props.fields.name.value }
+        ),
+      },
+    }),
   },
 });
