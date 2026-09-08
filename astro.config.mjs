@@ -16,14 +16,34 @@ export default defineConfig({
       }
     ],
   },
-  integrations: [
-    sitemap(),
-    process.env.NODE_ENV === 'development' ? keystatic() : null
-  ].filter(Boolean),
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [
+      {
+        name: 'fix-astro-module-type',
+        enforce: 'post',
+        load(id) {
+          if (id.includes('astro:scripts')) {
+            console.log('LOAD ID:', id);
+          }
+        },
+        transform(code, id) {
+          if (id.includes('astro:scripts')) {
+            console.log('TRANSFORM ID:', id);
+            return { code, moduleType: 'js' };
+          }
+        }
+      },
+      tailwindcss()
+    ],
     optimizeDeps: {
       exclude: ['astro:env/server', 'astro:scripts/before-hydration.js']
     }
   },
+  integrations: [
+    sitemap(),
+    process.env.NODE_ENV === 'development' ? react({
+      include: ['**/*.{jsx,tsx}']
+    }) : null,
+    process.env.NODE_ENV === 'development' ? keystatic() : null
+  ].filter(Boolean),
 });
