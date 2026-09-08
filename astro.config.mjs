@@ -1,6 +1,8 @@
 import { defineConfig, fontProviders } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
+import keystatic from "@keystatic/astro";
+
 export default defineConfig({
   site: "https://yoursite.com",
   experimental: {
@@ -13,7 +15,10 @@ export default defineConfig({
       }
     ],
   },
-  integrations: [sitemap()],
+  integrations: [
+    sitemap(),
+    process.env.NODE_ENV === 'development' ? keystatic() : null
+  ].filter(Boolean),
   vite: {
     plugins: [tailwindcss()],
   },
