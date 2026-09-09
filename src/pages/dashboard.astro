@@ -1,0 +1,16 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import { DashboardApp } from "../components/dashboard/DashboardApp";
+import { Font } from "astro:assets";
+---
+
+<html lang="en" class="scroll-smooth selection:bg-accent-500 selection:text-white no-touchevents hydrated">
+  <head>
+    <BaseHead />
+    <title>Dashboard | Syntro</title>
+    <Font cssVariable="--font-sans" preload />
+  </head>
+  <body class="bg-white">
+    <DashboardApp client:load />
+  </body>
+</html>
