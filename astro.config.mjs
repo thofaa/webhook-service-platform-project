@@ -43,9 +43,9 @@ export default defineConfig({
   integrations: [
     sitemap(),
     mdx(),
-    process.env.NODE_ENV === 'development' ? react({
+    react({
       include: ['**/*.{jsx,tsx}']
-    }) : null,
+    }),
     process.env.NODE_ENV === 'development' ? keystatic() : null
   ].filter(Boolean),
 });
