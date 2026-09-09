@@ -18,6 +18,11 @@ export default defineConfig({
     ],
   },
   vite: {
+    server: {
+      proxy: {
+        '/api': 'http://localhost:8080'
+      }
+    },
     plugins: [
       {
         name: 'fix-astro-module-type',
