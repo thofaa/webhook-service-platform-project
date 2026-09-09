@@ -1,0 +1,62 @@
+{
+  "tagline": "Tagline",
+  "title": "Equip your business",
+  "description": "Choose a plan that works the best for you and your team.",
+  "tiers": [
+    {
+      "name": "Core",
+      "target": "For individuals",
+      "description": "This subscription tier caters to individuals and hobbyists seeking features.",
+      "priceMonthly": "$29.00",
+      "priceAnnually": "$19.00",
+      "isPopular": false,
+      "buttonText": "Get Started",
+      "buttonUrl": "https://github.com/bekturaslan/syntro-astro",
+      "featuresList": [
+        "Unlimited members",
+        "1 Team",
+        "50 issues",
+        "Slack, GitHub, and API access",
+        "Basic reporting tools",
+        "Community support",
+        "Basic customization options"
+      ]
+    },
+    {
+      "name": "Momentum",
+      "target": "For startups",
+      "description": "Tailored for expanding businesses, this tier offers advanced tools and analytics.",
+      "priceMonthly": "$49.00",
+      "priceAnnually": "$39.00",
+      "isPopular": true,
+      "buttonText": "Get Started",
+      "buttonUrl": "https://github.com/bekturaslan/syntro-astro",
+      "featuresList": [
+        "Unlimited teams",
+        "Private teams and guests",
+        "Insights",
+        "Custom branding options",
+        "Collaboration tools",
+        "Mobile app access"
+      ]
+    },
+    {
+      "name": "Growth",
+      "target": "For corporates",
+      "description": "Designed for established businesses, providing comprehensive tools.",
+      "priceMonthly": "$99.00",
+      "priceAnnually": "$79.00",
+      "isPopular": false,
+      "buttonText": "Get Started",
+      "buttonUrl": "https://github.com/bekturaslan/syntro-astro",
+      "featuresList": [
+        "Unlimited members",
+        "Advanced analytics",
+        "Priority support",
+        "Custom API integration",
+        "Unlimited storage",
+        "Enhanced security"
+      ]
+    }
+  ]
+}

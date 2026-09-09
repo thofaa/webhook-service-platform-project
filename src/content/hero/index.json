@@ -1,0 +1,19 @@
+{
+  "tagline": "Tagline",
+  "title": "An astro template built with Astro and Tailwind CSS for your next project",
+  "description": "The fastest method for working together on staging and temporary environments.",
+  "featuresList": [
+    {
+      "title": "Astro, Tailwind CSS and Alpine.js",
+      "description": "These are the popular technologies behind Syntro."
+    },
+    {
+      "title": "Includes 6 pages",
+      "description": "You will find this landing, FAQ, terms, privacy, sign up, and sign in pages."
+    },
+    {
+      "title": "Different sections",
+      "description": "The starter includes different feature sections, a pricing table, testimonial, CTA, and full forms."
+    }
+  ]
+}

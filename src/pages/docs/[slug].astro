@@ -1,0 +1,71 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection, getEntry } from "astro:content";
+
+export async function getStaticPaths() {
+  const docs = await getCollection("docs");
+  return docs.map(({ id }) => ({ params: { slug: id } }));
+}
+
+const { slug } = Astro.params;
+const entry = await getEntry("docs", slug!);
+if (!entry) {
+  return Astro.redirect("/docs");
+}
+const { Content } = await entry.render();
+const { title, description } = entry.data;
+
+const allDocs = (await getCollection("docs")).sort(
+  (a, b) => a.data.order - b.data.order
+);
+const index = allDocs.findIndex((d) => d.id === slug);
+const prev = allDocs[index - 1];
+const next = allDocs[index + 1];
+---
+
+<BaseLayout>
+  <section>
+    <div
+      class="px-8 py-24 mx-auto md:px-12 lg:px-24 max-w-7xl relative"
+    >
+      <a
+        href="/docs"
+        class="inline-flex items-center text-sm font-medium text-accent-500 hover:text-accent-700 transition">
+        &larr; All docs
+      </a>
+      <div class="mx-auto max-w-3xl pt-8">
+        <h1
+          class="text-3xl tracking-tight font-medium text-base-900 md:text-4xl">
+          {title}
+        </h1>
+        <p class="mt-4 text-base leading-7 text-base-500">{description}</p>
+        <div
+          class="mt-10 prose prose-base prose-base-700 prose-headings:text-base-900 prose-a:text-accent-500 prose-a:font-semibold prose-pre:bg-base-950">
+          <Content />
+        </div>
+        <nav
+          class="mt-16 pt-8 border-t border-base-200 flex items-center justify-between">
+          {
+            prev && (
+              <a
+                href={`/docs/${prev.id}`}
+                class="text-sm font-medium text-accent-500 hover:text-accent-700 transition">
+                &larr; {prev.data.title}
+              </a>
+            )
+          }
+          <span></span>
+          {
+            next && (
+              <a
+                href={`/docs/${next.id}`}
+                class="text-sm font-medium text-accent-500 hover:text-accent-700 transition">
+                {next.data.title} &rarr;
+              </a>
+            )
+          }
+        </nav>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
